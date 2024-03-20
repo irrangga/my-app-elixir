@@ -36,6 +36,8 @@ defmodule MyApp.MixProject do
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
       {:postgrex, ">= 0.0.0"},
+      {:absinthe, "~> 1.7.0", override: true},
+      {:absinthe_plug, "~> 1.5"},
       {:phoenix_html, "~> 4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.2"},
@@ -57,6 +59,7 @@ defmodule MyApp.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
+      {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.2"}
     ]
   end

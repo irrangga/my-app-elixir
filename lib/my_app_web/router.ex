@@ -20,6 +20,14 @@ defmodule MyAppWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: MyAppWeb.Schema
+
+    forward "/", Absinthe.Plug, schema: MyAppWeb.Schema
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", MyAppWeb do
   #   pipe_through :api

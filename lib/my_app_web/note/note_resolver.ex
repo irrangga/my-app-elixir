@@ -19,4 +19,18 @@ defmodule MyAppWeb.Resolvers.NoteResolver do
       _ -> {:ok, "success"}
     end
   end
+
+  def update_note(%{title: title, body: body}, _resolution) do
+    case MyApp.Note.update_note(title, body) do
+      {:error, error} -> {:error, error}
+      _ -> {:ok, "success"}
+    end
+  end
+
+  def delete_note(%{title: title}, _resolution) do
+    case MyApp.Note.delete_note(title) do
+      {:error, error} -> {:error, error}
+      _ -> {:ok, "success"}
+    end
+  end
 end

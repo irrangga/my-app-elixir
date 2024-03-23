@@ -38,4 +38,30 @@ defmodule MyAppWeb.GraphQL.NoteQuery do
     }
     """
   end
+
+  def update_note_query() do
+    """
+    mutation UPDATE_NOTE(
+      $title: String!
+      $body: String!
+    ) {
+      updateNote(
+        title: $title
+        body: $body
+      )
+    }
+    """
+  end
+
+  def delete_note_query() do
+    """
+    mutation DELETE_NOTE(
+      $title: String!
+    ) {
+      deleteNote(
+        title: $title
+      )
+    }
+    """
+  end
 end

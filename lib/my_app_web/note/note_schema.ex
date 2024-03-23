@@ -18,12 +18,27 @@ defmodule MyAppWeb.Schema.NoteSchema do
   end
 
   object :note_mutations do
-    @desc "Taking a note"
+    @desc "Insert a note"
     field :insert_note, :string do
       arg(:title, non_null(:string))
       arg(:body, non_null(:string))
 
       resolve(&NoteResolver.insert_note/2)
+    end
+
+    @desc "Update a note"
+    field :update_note, :string do
+      arg(:title, non_null(:string))
+      arg(:body, non_null(:string))
+
+      resolve(&NoteResolver.update_note/2)
+    end
+
+    @desc "Delete a note"
+    field :delete_note, :string do
+      arg(:title, non_null(:string))
+
+      resolve(&NoteResolver.delete_note/2)
     end
   end
 end

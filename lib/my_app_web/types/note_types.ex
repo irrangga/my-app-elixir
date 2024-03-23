@@ -1,4 +1,4 @@
-defmodule MyAppWeb.Schema.NoteTypes do
+defmodule MyAppWeb.Types.NoteTypes do
   use Absinthe.Schema.Notation
 
   object :note do

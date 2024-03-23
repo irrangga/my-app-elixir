@@ -1,6 +1,8 @@
 defmodule MyApp.Note do
+  alias MyApp.Redix
+
   def list_notes() do
-    case Redix.command(:redix, ["KEYS", "*"]) do
+    case Redix.command(["KEYS", "*"]) do
       {:ok, keys} ->
         keys
         |> Enum.map(fn key ->
@@ -19,7 +21,7 @@ defmodule MyApp.Note do
   end
 
   def get_note(title) do
-    case Redix.command(:redix, ["GET", title]) do
+    case Redix.command(["GET", title]) do
       {:ok, nil} ->
         nil
 
@@ -35,7 +37,7 @@ defmodule MyApp.Note do
   end
 
   def insert_note(title, body) do
-    case Redix.command(:redix, ["SET", title, body]) do
+    case Redix.command(["SET", title, body]) do
       {:ok, _} ->
         "success"
 

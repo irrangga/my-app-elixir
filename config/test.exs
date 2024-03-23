@@ -1,5 +1,10 @@
 import Config
 
+config :my_app, MyApp.Redix,
+  host: System.get_env("REDIS_HOST_TEST"),
+  port: System.get_env("REDIS_PORT_TEST"),
+  db: System.get_env("REDIS_DB_TEST")
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :my_app, MyAppWeb.Endpoint,

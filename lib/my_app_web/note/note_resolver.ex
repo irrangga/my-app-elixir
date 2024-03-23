@@ -1,4 +1,4 @@
-defmodule MyAppWeb.Resolvers.Note do
+defmodule MyAppWeb.Resolvers.NoteResolver do
   def list_notes(_args, _resolution) do
     case MyApp.Note.list_notes() do
       {:error, error} -> {:error, error}

@@ -1,5 +1,10 @@
 import Config
 
+config :my_app, MyApp.Redix,
+  host: System.get_env("REDIS_HOST"),
+  port: System.get_env("REDIS_PORT"),
+  db: System.get_env("REDIS_DB")
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
